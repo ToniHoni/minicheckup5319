@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var cors = require('cors')
+app.use(cors())
 
 var counter = 0;
 var timestamp = new Date();
