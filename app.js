@@ -5,13 +5,13 @@ app.use(cors())
 
 var counter = 0;
 var timestamp = new Date();
-var fuck = false;
+var works = true;
 
 function checkupAlive() {
   if(((new Date) - timestamp) > 60000){
-  	fuck = true;
+  	works = false;
   }else{
-  	fuck = false;
+  	works = true;
   }
   setTimeout(checkupAlive, 10000);
 }
@@ -21,10 +21,11 @@ setTimeout(checkupAlive, 10000);
 app.get('/heartbeat', function (req, res) {
 	console.log("Got a connection");
   timestamp = new Date();
+  res.send();
 });
 
 app.get('/checkup', function (req, res) {
-  res.send(fuck);
+  res.send(works);
 });
 
 app.listen(process.env.PORT || 5000, function () {
