@@ -25,7 +25,7 @@ app.get('/heartbeat', function (req, res) {
 });
 
 app.get('/checkup', function (req, res) {
-  res.send(works);
+  res.send({"works" : works, "lastActive" : timestamp});
 });
 
 app.listen(process.env.PORT || 5000, function () {
